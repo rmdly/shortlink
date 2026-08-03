@@ -1,0 +1,14 @@
+{
+  "ignored_warnings": [
+    {
+      "fingerprint": "fef6a1bfade5beee62f8cad68c4168038b92a8121105c424e29467da33cc9bfb",
+      "note": "Redirecting to a user-supplied destination is the entire product. Link validates that the URL is http(s), so no javascript: or data: scheme can be stored."
+    },
+    {
+      "fingerprint": "291801cd7e9075a6a8880df8a1e2bffc9db54d8e9597d837021299ea4bb31520",
+      "note": "Same as above: the href can only ever be an http(s) URL that passed Link's format validation."
+    }
+  ],
+  "updated": "2026-07-29",
+  "brakeman_version": "7.1.0"
+}

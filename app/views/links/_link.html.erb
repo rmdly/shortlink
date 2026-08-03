@@ -1,0 +1,15 @@
+<tr id="<%= dom_id link %>">
+  <td class="short" data-controller="clipboard" data-clipboard-text-value="<%= short_url link.slug %>">
+    <%= link_to "/#{link.slug}", short_path(link.slug), class: "slug" %>
+    <button type="button" class="copy" data-action="clipboard#copy" data-clipboard-target="button">Copy</button>
+  </td>
+
+  <td class="destination"><%= link_to truncate(link.url, length: 64), link.url, rel: "nofollow noopener" %></td>
+
+  <td class="visits"><%= link_to pluralize(link.visits_count, "visit"), link %></td>
+
+  <td class="actions">
+    <%= button_to "Delete", link, method: :delete, class: "destroy",
+          form: { data: { turbo_confirm: "Delete /#{link.slug}? Its visit history goes too." } } %>
+  </td>
+</tr>

@@ -1,0 +1,20 @@
+<%= form_with model: link, class: "shorten" do |form| %>
+  <% if link.errors.any? %>
+    <ul class="errors">
+      <% link.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div class="fields">
+    <%= form.label :url, class: "visually-hidden" %>
+    <%= form.url_field :url, placeholder: "https://example.com/a/needlessly/long/url",
+          autofocus: true, autocomplete: "off", required: true %>
+
+    <%= form.label :slug, class: "visually-hidden" %>
+    <%= form.text_field :slug, placeholder: "custom-slug (optional)", autocomplete: "off" %>
+
+    <%= form.submit "Shorten" %>
+  </div>
+<% end %>

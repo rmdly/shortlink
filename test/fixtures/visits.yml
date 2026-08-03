@@ -1,0 +1,14 @@
+from_hacker_news:
+  link: rails
+  referrer: https://news.ycombinator.com/
+  user_agent: Mozilla/5.0
+  created_at: <%= 2.days.ago.to_fs(:db) %>
+
+also_from_hacker_news:
+  link: rails
+  referrer: https://news.ycombinator.com/
+  created_at: <%= 1.day.ago.to_fs(:db) %>
+
+direct:
+  link: rails
+  created_at: <%= 30.minutes.ago.to_fs(:db) %>

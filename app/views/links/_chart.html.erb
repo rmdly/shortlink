@@ -1,0 +1,15 @@
+<% peak = [ daily.values.max, 1 ].max %>
+
+<ol class="chart">
+  <% daily.each do |date, count| %>
+    <li>
+      <span style="height: <%= (100.0 * count / peak).round %>%"></span>
+      <span class="visually-hidden"><%= pluralize count, "visit" %> on <%= date.to_fs :long %></span>
+    </li>
+  <% end %>
+</ol>
+
+<p class="axis">
+  <span><%= daily.keys.first.to_fs :short %></span>
+  <span><%= daily.keys.last.to_fs :short %></span>
+</p>

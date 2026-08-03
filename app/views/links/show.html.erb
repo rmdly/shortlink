@@ -1,0 +1,50 @@
+<% content_for :title, "/#{@link.slug} — Shortlink" %>
+
+<article class="detail">
+  <header>
+    <h1><%= link_to "/#{@link.slug}", short_path(@link.slug), class: "slug" %></h1>
+    <p class="destination"><%= link_to @link.url, @link.url, rel: "nofollow noopener" %></p>
+  </header>
+
+  <dl class="stats">
+    <div>
+      <dt>Visits</dt>
+      <dd><%= number_with_delimiter @link.visits_count %></dd>
+    </div>
+    <div>
+      <dt>Created</dt>
+      <dd><%= @link.created_at.to_fs :long %></dd>
+    </div>
+    <div>
+      <dt>Last visit</dt>
+      <dd>
+        <% if last_visited_at = @link.last_visited_at %>
+          <%= time_ago_in_words last_visited_at %> ago
+        <% else %>
+          never
+        <% end %>
+      </dd>
+    </div>
+  </dl>
+
+  <section>
+    <h2>Last fortnight</h2>
+    <%= render "chart", daily: @link.visits_per_day %>
+  </section>
+
+  <% referrers = @link.top_referrers %>
+
+  <% if referrers.any? %>
+    <section>
+      <h2>Top referrers</h2>
+
+      <ol class="referrers">
+        <% referrers.each do |referrer, count| %>
+          <li><span class="source"><%= referrer %></span> <span class="count"><%= count %></span></li>
+        <% end %>
+      </ol>
+    </section>
+  <% end %>
+
+  <p class="back"><%= link_to "← All links", root_path %></p>
+</article>

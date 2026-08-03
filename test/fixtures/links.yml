@@ -1,0 +1,13 @@
+rails:
+  url: https://rubyonrails.org
+  slug: rails
+  visits_count: 3
+  created_at: <%= 3.days.ago.to_fs(:db) %>
+  updated_at: <%= 3.days.ago.to_fs(:db) %>
+
+guides:
+  url: https://guides.rubyonrails.org/getting_started.html
+  slug: guides
+  visits_count: 0
+  created_at: <%= 1.hour.ago.to_fs(:db) %>
+  updated_at: <%= 1.hour.ago.to_fs(:db) %>

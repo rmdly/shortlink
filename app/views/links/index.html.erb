@@ -1,0 +1,20 @@
+<%= render "form", link: @link %>
+
+<% if @links.any? %>
+  <table class="links">
+    <thead>
+      <tr>
+        <th scope="col">Short</th>
+        <th scope="col">Destination</th>
+        <th scope="col">Visits</th>
+        <th scope="col"><span class="visually-hidden">Actions</span></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= render @links %>
+    </tbody>
+  </table>
+<% else %>
+  <p class="blank-slate">No links yet. Shorten one above.</p>
+<% end %>
